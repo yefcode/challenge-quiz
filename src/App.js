@@ -16,7 +16,9 @@ function App () {
 
   return (
     <div className='App'>
-      <OverallProgressBar />
+      <OverallProgressBar
+        currentQuestionIndex={currentQuestionIndex}
+        totalQuestions={totalQuestions} />
       <div className='quiz-container'>
         <Question
           currentQuestionIndex={currentQuestionIndex}
