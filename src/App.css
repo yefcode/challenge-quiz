@@ -4,6 +4,7 @@
   --borderColor: hsl(0, 0%, 85%);
   --grayColor: hsl(120, 1%, 80%);
   --buttonColor: hsl(200, 0%, 80%);
+  --buttonHoverColor: hsl(200, 0%, 60%);
   --disable-answer-color: hsl(0, 0%, 50%);
   --disable-bkg-color: hsl(200, 0%, 86%);
   --disable-border-color: hsl(0, 0%, 60%);
@@ -35,6 +36,10 @@ button {
   font-size: 15px;
   font-weight: 600;
   background-color: var(--buttonColor)
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--buttonHoverColor)
 }
 
 .quiz-container {

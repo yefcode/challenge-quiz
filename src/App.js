@@ -7,15 +7,23 @@ import './App.css'
 
 function App () {
   const [question, setQuestion] = useState({})
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+  const totalQuestions = questions.length
 
-  useEffect(() =>{
-    setQuestion(questions[0])
-  }, [])
+  useEffect(() => {
+    setQuestion(questions[currentQuestionIndex])
+  }, [currentQuestionIndex])
+
   return (
     <div className='App'>
       <OverallProgressBar />
       <div className='quiz-container'>
-        <Question question={question} />
+        <Question
+          currentQuestionIndex={currentQuestionIndex}
+          totalQuestions={totalQuestions}
+          question={question}
+          nextQuestion={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+        />
         <ScoreBar />
       </div>
     </div>
