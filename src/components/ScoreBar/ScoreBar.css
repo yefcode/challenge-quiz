@@ -1,0 +1,38 @@
+.score {
+  margin-top: 152px;
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 14px;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+}
+
+.score-bar {
+  position: relative;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+.score-bar, .max-score-bar, .current-score-bar, .lowest-score-bar {
+  height: 22px;
+}
+
+.max-score-bar, .current-score-bar, .lowest-score-bar {
+  position: absolute;
+}
+
+.max-score-bar {
+  background-color: var(--max-score-color);
+}
+
+.current-score-bar {
+  background-color: var(--current-score-color);
+}
+
+.lowest-score-bar {
+  background-color: black;
+}

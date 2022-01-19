@@ -1,33 +1,43 @@
-.App {
-  text-align: center;
+:root {
+  --tittleColor: hsl(0, 0%, 29%);
+  --categoryColor: hsl(0, 0%, 55%);
+  --borderColor: hsl(0, 0%, 85%);
+  --grayColor: hsl(120, 1%, 80%);
+  --buttonColor: hsl(200, 0%, 80%);
+  --disable-answer-color: hsl(0, 0%, 50%);
+  --disable-bkg-color: hsl(200, 0%, 86%);
+  --disable-border-color: hsl(0, 0%, 60%);
+
+  --overall-progress-color: hsl(120, 1%, 66%);
+
+  --max-score-color: hsl(0, 0%, 82%);
+  --current-score-color: hsl(0, 0%, 44%);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  border: 1px solid var(--borderColor);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  color: var(--tittleColor);
+  margin: 0;
+  font-weight: 600;
+}
+
+button {
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--buttonColor)
+}
+
+.quiz-container {
+  width: 400px;
+  padding: 35px 80px 15px;
 }

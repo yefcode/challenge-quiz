@@ -1,24 +1,23 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { useState, useEffect } from 'react'
+import OverallProgressBar from './components/OverallProgressBar/OverallProgressBar'
+import Question from './components/Question/Question'
+import ScoreBar from './components/ScoreBar/ScoreBar'
+import questions from './questions.json'
 import './App.css'
 
 function App () {
+  const [question, setQuestion] = useState({})
+
+  useEffect(() =>{
+    setQuestion(questions[0])
+  }, [])
   return (
     <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      <OverallProgressBar />
+      <div className='quiz-container'>
+        <Question question={question} />
+        <ScoreBar />
+      </div>
     </div>
   )
 }

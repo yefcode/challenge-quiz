@@ -1,0 +1,4 @@
+.overall-progress {
+  height: 12px;
+  background-color: var(--overall-progress-color);
+}
