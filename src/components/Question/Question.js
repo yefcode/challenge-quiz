@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Question.css'
 
-const Question = ({ currentQuestionIndex, totalQuestions, question, nextQuestion }) => {
+const Question = ({ currentQuestionIndex, totalQuestions, question, nextQuestion, updateScore, updateScoreIndex }) => {
   const [answers, setAnswers] = useState([])
   const [answerSelected, setAnswerSelected] = useState('')
 
@@ -20,8 +20,12 @@ const Question = ({ currentQuestionIndex, totalQuestions, question, nextQuestion
     setAnswers(questionAnswers)
   }, [question.correct_answer, question.incorrect_answers, question.type])
 
-  const selectedAnswer = (answers) => {
-    setAnswerSelected(answers)
+  const selectedAnswer = (answer) => {
+    setAnswerSelected(answer)
+    updateScoreIndex()
+    if (answer === question.correct_answer) {
+      updateScore()
+    }
   }
 
   const next = () => {

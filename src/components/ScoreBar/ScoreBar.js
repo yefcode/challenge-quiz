@@ -1,16 +1,18 @@
 import React from 'react'
 import './ScoreBar.css'
 
-const ScoreBar = () => {
-  const maxScore = 75
-  const currentScore = 67
-  const lowestScore = 50
+const ScoreBar = ({ totalQuestions, score, currentScoreIndex }) => {
+  const lowestScore = (score / totalQuestions) * 100
+  const currentScore = currentScoreIndex === 0
+    ? score * 100 : Math.floor((score / (currentScoreIndex)) * 100)
+  const maxScore = Math.floor(
+    ((totalQuestions - currentScoreIndex + score) / totalQuestions) * 100)
 
   return (
     <div className='score'>
       <div className='score-container'>
-        <span>Score: 67%</span>
-        <span>Max Score: 75%</span>
+        <span>Score: {currentScore}%</span>
+        <span>Max Score: {maxScore}%</span>
       </div>
       <div className='score-bar'>
         <div className='max-score-bar'
