@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Question.css'
 
-const Question = ({ currentQuestionIndex, totalQuestions, question, nextQuestion, updateScore, updateScoreIndex }) => {
+const Question = ({ currentQuestionIndex, totalQuestions, question, updateCurrentQuestionIndex, updateScore, updateScoreIndex }) => {
   const [answers, setAnswers] = useState([])
   const [answerSelected, setAnswerSelected] = useState('')
 
@@ -28,8 +28,8 @@ const Question = ({ currentQuestionIndex, totalQuestions, question, nextQuestion
     }
   }
 
-  const next = () => {
-    nextQuestion()
+  const nextQuestion = () => {
+    updateCurrentQuestionIndex()
     setAnswerSelected('')
   }
 
@@ -40,7 +40,7 @@ const Question = ({ currentQuestionIndex, totalQuestions, question, nextQuestion
 
   return (
     <div className='question-container'>
-      <h2>Question {currentQuestionIndex + 1} of {totalQuestions}</h2>
+      <h2>Question {currentQuestionIndex} of {totalQuestions}</h2>
       <small className='category'>{decodeURIComponent(question.category)}</small>
       <div>
         <span className='difficulty black'>★</span>
@@ -69,7 +69,7 @@ const Question = ({ currentQuestionIndex, totalQuestions, question, nextQuestion
               {answerSelected === question.correct_answer ? 'Correct!' : 'Sorry!'}
             </div>
             <button className='next-question'
-              onClick={() => next()}>
+              onClick={() => nextQuestion()}>
               Next Question
             </button>
           </div> : null

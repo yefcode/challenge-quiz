@@ -19,15 +19,15 @@ function App () {
   return (
     <div className='App'>
       <OverallProgressBar
-        currentQuestionIndex={currentQuestionIndex}
+        currentQuestionIndex={currentQuestionIndex + 1}
         totalQuestions={totalQuestions} />
       <div className='quiz-container'>
         { currentQuestionIndex < totalQuestions && (
           <Question
-            currentQuestionIndex={currentQuestionIndex}
+            currentQuestionIndex={currentQuestionIndex + 1}
             totalQuestions={totalQuestions}
             question={question}
-            nextQuestion={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+            updateCurrentQuestionIndex={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
             updateScore={() => setScore(score + 1)}
             updateScoreIndex={() => setCurrentScoreIndex(currentScoreIndex + 1)}
           />

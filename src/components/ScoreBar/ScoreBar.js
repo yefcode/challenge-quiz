@@ -1,12 +1,11 @@
 import React from 'react'
 import './ScoreBar.css'
+import { getPercentageValue, getMaxScore } from '../../utils/utils.js'
 
 const ScoreBar = ({ totalQuestions, score, currentScoreIndex }) => {
-  const lowestScore = (score / totalQuestions) * 100
-  const currentScore = currentScoreIndex === 0
-    ? score * 100 : Math.floor((score / (currentScoreIndex)) * 100)
-  const maxScore = Math.floor(
-    ((totalQuestions - currentScoreIndex + score) / totalQuestions) * 100)
+  const lowestScore = getPercentageValue(score, totalQuestions)
+  const currentScore = getPercentageValue(score, currentScoreIndex)
+  const maxScore = getMaxScore(totalQuestions, currentScoreIndex, score)
 
   return (
     <div className='score'>
