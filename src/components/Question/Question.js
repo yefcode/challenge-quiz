@@ -65,7 +65,7 @@ const Question = ({ currentQuestionIndex, totalQuestions, question, updateCurren
       {
         answerSelected !== ''
           ? <div className='text-center'>
-            <div className='correct'>
+            <div className='correct-sorry'>
               {answerSelected === question.correct_answer ? 'Correct!' : 'Sorry!'}
             </div>
             <button className='next-question'
