@@ -1,3 +1,6 @@
+# Demo
+<img src="demo.gif" alt="ChallengeQuiz">
+
 ![Outlier.org](https://i.imgur.com/vJowpL1.png)
 
 ---
@@ -34,3 +37,5 @@ How to attempt this challenge:
 
 You must follow these steps for your solution to be accepted -- forks or other methods will not be considered.
 
+# Demo
+<img src="e2e-demo.gif" alt="ChallengeQuizTest">
