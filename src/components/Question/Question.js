@@ -1,78 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import QuestionHeader from './QuestionHeader/QuestionHeader'
+import Answers from './Answers/Answers'
+import ResultMessage from './ResultMessage/ResultMessage'
 import './Question.css'
 
 const Question = ({ currentQuestionIndex, totalQuestions, question, updateCurrentQuestionIndex, updateScore, updateScoreIndex }) => {
-  const [answers, setAnswers] = useState([])
   const [answerSelected, setAnswerSelected] = useState('')
-
-  useEffect(() => {
-    let questionAnswers = []
-    if (question.type === 'boolean') {
-      questionAnswers = ['True', 'False']
-    } else {
-      const randomIndex =
-      Math.floor(Math.random() * (question.incorrect_answers || []).length + 1)
-      questionAnswers = (question.incorrect_answers || [])
-      if (questionAnswers.length) {
-        questionAnswers.splice(randomIndex, 0, question.correct_answer)
-      }
-    }
-    setAnswers(questionAnswers)
-  }, [question.correct_answer, question.incorrect_answers, question.type])
-
-  const selectedAnswer = (answer) => {
-    setAnswerSelected(answer)
-    updateScoreIndex()
-    if (answer === question.correct_answer) {
-      updateScore()
-    }
-  }
-
-  const nextQuestion = () => {
-    updateCurrentQuestionIndex()
-    setAnswerSelected('')
-  }
-
-  const difficultyMediumStyle = question.difficulty === 'easy' ? 'gray' : 'black'
-  const difficultyHardStyle = question.difficulty === 'hard' ? 'black' : 'gray'
-
-  const disableAnswerStyle = answerSelected ? 'disable-answer' : ''
 
   return (
     <div className='question-container'>
-      <h2>Question {currentQuestionIndex} of {totalQuestions}</h2>
-      <small className='category'>{decodeURIComponent(question.category)}</small>
-      <div>
-        <span className='difficulty black'>★</span>
-        <span className={`difficulty ${difficultyMediumStyle}`}>★</span>
-        <span className={`difficulty ${difficultyHardStyle}`}>★</span>
-      </div>
+      <QuestionHeader
+        currentQuestionIndex={currentQuestionIndex}
+        totalQuestions={totalQuestions}
+        question={question} />
       <p className='question'>{decodeURIComponent(question.question)}</p>
-      <div className='answers'>
-        {answers.map((answer, index) => (
-          <button
-            className={`answer ${disableAnswerStyle}
-            ${answerSelected === answer
-            ? 'selected-answer' : ((answerSelected && (answer === question.correct_answer))
-              ? 'correct-answer' : '')} `}
-            key={index}
-            disabled={answerSelected !== ''}
-            onClick={() => selectedAnswer(answer)}>
-            {decodeURIComponent(answer)}
-          </button>
-        ))}
-      </div>
+      <Answers
+        question={question}
+        answerSelected={answerSelected}
+        setAnswerSelected={setAnswerSelected}
+        updateScore={updateScore}
+        updateScoreIndex={updateScoreIndex} />
       {
         answerSelected !== ''
-          ? <div className='text-center'>
-            <div className='correct-sorry'>
-              {answerSelected === question.correct_answer ? 'Correct!' : 'Sorry!'}
-            </div>
-            <button className='next-question'
-              onClick={() => nextQuestion()}>
-              Next Question
-            </button>
-          </div> : null
+          ? <ResultMessage
+            answerSelected={answerSelected}
+            correctAnswer={question.correct_answer}
+            updateCurrentQuestionIndex={updateCurrentQuestionIndex}
+            updateAnswerSelected={() => setAnswerSelected('')} /> : null
       }
     </div>
   )

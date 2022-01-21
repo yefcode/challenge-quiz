@@ -163,6 +163,7 @@ describe('Challenge quiz e2e tests', () => {
       cy.get('.text-center h1').eq(0).should('have.text', 'Quiz Completed')
       cy.get('.text-center h2').eq(0).should('have.text', 'Score 70%')
       cy.get('.text-center h2').eq(1).should('have.text', 'Score 14 / 20')
+      cy.get('.text-center .restart-quiz').should('have.text', 'Restart Quiz')
     })
   })
 })

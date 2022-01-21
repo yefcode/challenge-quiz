@@ -1,0 +1,17 @@
+.category {
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  color: var(--categoryColor);
+}
+
+.difficulty {
+  font-size: 14px;
+}
+
+.black {
+  color: black;
+}
+
+.gray {
+  color: var(--grayColor);
+}

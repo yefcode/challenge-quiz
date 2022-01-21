@@ -2,24 +2,6 @@
   height: 453px;
 }
 
-.category {
-  font-size: 13px;
-  letter-spacing: -0.5px;
-  color: var(--categoryColor);
-}
-
-.difficulty {
-  font-size: 14px;
-}
-
-.black {
-  color: black;
-}
-
-.gray {
-  color: var(--grayColor);
-}
-
 .question {
   height: 72px;
   margin: 30px 0 40px;
@@ -27,53 +9,4 @@
   font-weight: 600;
   color: black;
   letter-spacing: -0.5px;
-}
-
-.answers {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 40px;
-  column-gap: 50px;
-}
-
-.answer {
-  min-height: 25px;
-}
-
-.disable-answer {
-  color: var(--disable-answer-color);
-  background-color: var(--disable-bkg-color);
-  border: solid 1px var(--disable-border-color);
-}
-
-.selected-answer {
-  color: white;
-  background-color: black;
-  font-weight: 600;
-  border: solid 1px black;
-}
-
-.correct-answer {
-  color: black;
-  background-color: white;
-  font-weight: bold;
-  border-color: black;
-}
-
-.text-center {
-  text-align: center;
-  margin: 35px 0;
-  letter-spacing: -0.5px;
-}
-
-.correct-sorry {
-  font-weight: 600;
-  font-size: 28px;
-  color: black;
-}
-
-.next-question {
-  margin: 20px 0;
-  width: 155px;
-  height: 35px;
 }

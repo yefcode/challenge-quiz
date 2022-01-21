@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import OverallProgressBar from './components/OverallProgressBar/OverallProgressBar'
 import Question from './components/Question/Question'
 import ScoreBar from './components/ScoreBar/ScoreBar'
+import QuizComplete from './components/QuizComplete/QuizComplete'
 import questions from './questions.json'
 import './App.css'
 
@@ -15,6 +16,13 @@ function App () {
   useEffect(() => {
     setQuestion(questions[currentQuestionIndex])
   }, [currentQuestionIndex])
+
+  const restartQuiz = () => {
+    setCurrentQuestionIndex(0)
+    setScore(0)
+    setCurrentScoreIndex(0)
+    setQuestion(questions[0])
+  }
 
   return (
     <div className='App'>
@@ -33,11 +41,10 @@ function App () {
           />
         )}
         {currentQuestionIndex === totalQuestions && (
-          <div className='text-center'>
-            <h1>Quiz Completed</h1>
-            <h2>Score {Math.floor((score * 100) / totalQuestions)}%</h2>
-            <h2>Score {`${score} / ${totalQuestions}`}</h2>
-          </div>
+          <QuizComplete
+            score={score}
+            totalQuestions={totalQuestions}
+            restartQuiz={restartQuiz} />
         )}
         <ScoreBar
           totalQuestions={totalQuestions}
