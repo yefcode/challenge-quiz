@@ -12,8 +12,8 @@
   --button-color-background: hsl(120, 80%, 85%);
   --button-hover-background: hsl(120, 80%, 75%);
 
-  --disable-answer-color: hsla(0, 0%, 0%, 0.1);
-  --disable-bkg-color: hsla(120, 80%, 85%, 0.4);
+  --disable-answer-color: hsla(0, 0%, 0%, 0.2);
+  --disable-bkg-color: hsla(120, 80%, 85%, 0.5);
 
   --selected-answer: white;
   --selected-answer-background: hsl(0, 60%, 50%);
