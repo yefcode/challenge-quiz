@@ -4,28 +4,23 @@ import Answers from './Answers/Answers'
 import ResultMessage from './ResultMessage/ResultMessage'
 import './Question.css'
 
-const Question = ({ currentQuestionIndex, totalQuestions, question, updateCurrentQuestionIndex, updateScore, updateScoreIndex }) => {
+const Question = ({ question }) => {
   const [answerSelected, setAnswerSelected] = useState('')
 
   return (
     <div className='question-container'>
       <QuestionHeader
-        currentQuestionIndex={currentQuestionIndex}
-        totalQuestions={totalQuestions}
         question={question} />
       <p className='question'>{decodeURIComponent(question.question)}</p>
       <Answers
         question={question}
         answerSelected={answerSelected}
-        setAnswerSelected={setAnswerSelected}
-        updateScore={updateScore}
-        updateScoreIndex={updateScoreIndex} />
+        setAnswerSelected={setAnswerSelected} />
       {
         answerSelected !== ''
           ? <ResultMessage
             answerSelected={answerSelected}
             correctAnswer={question.correct_answer}
-            updateCurrentQuestionIndex={updateCurrentQuestionIndex}
             updateAnswerSelected={() => setAnswerSelected('')} /> : null
       }
     </div>

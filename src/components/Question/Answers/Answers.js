@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Answers.css'
+import { QuestionContext } from '../../../App'
 
-const Answers = ({ question, answerSelected, setAnswerSelected, updateScore, updateScoreIndex }) => {
+const Answers = ({ question, answerSelected, setAnswerSelected }) => {
   const [answers, setAnswers] = useState([])
+  const answerContext = useContext(QuestionContext)
 
   useEffect(() => {
     let questionAnswers = []
@@ -21,9 +23,9 @@ const Answers = ({ question, answerSelected, setAnswerSelected, updateScore, upd
 
   const selectedAnswer = (answer) => {
     setAnswerSelected(answer)
-    updateScoreIndex()
+    answerContext.updateScoreIndex()
     if (answer === question.correct_answer) {
-      updateScore()
+      answerContext.updateScore()
     }
   }
 

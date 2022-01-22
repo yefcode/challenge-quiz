@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './ResultMessage.css'
+import { QuestionContext } from '../../../App'
 
-const ResultMessage = ({ answerSelected, correctAnswer, updateCurrentQuestionIndex, updateAnswerSelected }) => {
+const ResultMessage = ({ answerSelected, correctAnswer, updateAnswerSelected }) => {
+  const resultMessageContext = useContext(QuestionContext)
   const nextQuestion = () => {
-    updateCurrentQuestionIndex()
+    resultMessageContext.updateCurrentQuestionIndex()
     updateAnswerSelected()
   }
   return (

@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './QuestionHeader.css'
+import { QuestionContext } from '../../../App'
 
-const QuestionHeader = ({ currentQuestionIndex, totalQuestions, question }) => {
+const QuestionHeader = ({ question }) => {
+  const headerContext = useContext(QuestionContext)
   const difficultyMediumStyle = question.difficulty === 'easy' ? 'gray' : 'black'
   const difficultyHardStyle = question.difficulty === 'hard' ? 'black' : 'gray'
   return (
     <>
-      <h2>Question {currentQuestionIndex} of {totalQuestions}</h2>
+      <h2>Question {headerContext.currentQuestionIndex} of {headerContext.totalQuestions}</h2>
       <small className='category'>{decodeURIComponent(question.category)}</small>
       <div>
         <span className='difficulty black'>★</span>

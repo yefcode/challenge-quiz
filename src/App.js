@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createContext } from 'react'
 import OverallProgressBar from './components/OverallProgressBar/OverallProgressBar'
 import Question from './components/Question/Question'
 import ScoreBar from './components/ScoreBar/ScoreBar'
 import QuizComplete from './components/QuizComplete/QuizComplete'
 import questions from './questions.json'
 import './App.css'
+
+const QuestionContext = createContext()
 
 function App () {
   const [question, setQuestion] = useState({})
@@ -24,6 +26,14 @@ function App () {
     setQuestion(questions[0])
   }
 
+  const questionContext = {
+    currentQuestionIndex: currentQuestionIndex + 1,
+    totalQuestions: totalQuestions,
+    updateCurrentQuestionIndex: () => setCurrentQuestionIndex(currentQuestionIndex + 1),
+    updateScore: () => setScore(score + 1),
+    updateScoreIndex: () => setCurrentScoreIndex(currentScoreIndex + 1)
+  }
+
   return (
     <div className='App'>
       <OverallProgressBar
@@ -31,14 +41,11 @@ function App () {
         totalQuestions={totalQuestions} />
       <div className='quiz-container'>
         { currentQuestionIndex < totalQuestions && (
-          <Question
-            currentQuestionIndex={currentQuestionIndex + 1}
-            totalQuestions={totalQuestions}
-            question={question}
-            updateCurrentQuestionIndex={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
-            updateScore={() => setScore(score + 1)}
-            updateScoreIndex={() => setCurrentScoreIndex(currentScoreIndex + 1)}
-          />
+          <QuestionContext.Provider value={questionContext}>
+            <Question
+              question={question}
+            />
+          </QuestionContext.Provider>
         )}
         {currentQuestionIndex === totalQuestions && (
           <QuizComplete
@@ -57,3 +64,4 @@ function App () {
 }
 
 export default App
+export { QuestionContext }
