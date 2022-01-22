@@ -54,7 +54,7 @@ describe('Challenge quiz e2e tests', () => {
     if (questions[questionIndex].type === 'multiple') {
       cy.get('button').should('have.length', 5)
       cy.get('.disable-answer').should('have.length', 4)
-      cy.get('.selected-answer').should('have.length', 1)
+      cy.get('.correct-answer').should('have.length', 1)
   
       cy.get('button').eq(0).should('be.disabled')
       cy.get('button').eq(1).should('be.disabled')
@@ -63,7 +63,7 @@ describe('Challenge quiz e2e tests', () => {
     } else {
       cy.get('button').should('have.length', 3)
       cy.get('.disable-answer').should('have.length', 2)
-      cy.get('.selected-answer').should('have.length', 1)
+      cy.get('.correct-answer').should('have.length', 1)
   
       cy.get('button').eq(0).should('be.disabled')
       cy.get('button').eq(1).should('be.disabled')
@@ -83,7 +83,7 @@ describe('Challenge quiz e2e tests', () => {
     })
 
     it('should load the answers styles after answer selected', () => {
-      cy.get('.correct-answer').should('have.length', 1)
+      cy.get('.selected-answer').should('have.length', 1)
       afterAnswerSelected()
     })
 
@@ -101,7 +101,7 @@ describe('Challenge quiz e2e tests', () => {
     })
   
     it('should load the answers styles', () => {
-      cy.get('.correct-answer').should('have.length', 0)
+      cy.get('.selected-answer').should('have.length', 0)
       afterAnswerSelected()
     })
 

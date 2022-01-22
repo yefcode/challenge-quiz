@@ -9,7 +9,7 @@
 }
 
 .black {
-  color: black;
+  color: var(--blackColor);
 }
 
 .gray {

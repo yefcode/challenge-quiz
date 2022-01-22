@@ -12,19 +12,16 @@
 .disable-answer {
   color: var(--disable-answer-color);
   background-color: var(--disable-bkg-color);
-  border: solid 1px var(--disable-border-color);
 }
 
 .selected-answer {
-  color: white;
-  background-color: black;
+  color: var(--selected-answer);
+  background-color: var(--selected-answer-background);
   font-weight: 600;
-  border: solid 1px black;
 }
 
 .correct-answer {
-  color: black;
-  background-color: white;
+  color: var(--correct-answer);
+  background-color: var(--correct-answer-background);
   font-weight: bold;
-  border-color: black;
 }

@@ -13,7 +13,7 @@
 
 .score-bar {
   position: relative;
-  border: solid 1px black;
+  border: solid 1px var(--score-bar-border);
   border-radius: 5px;
 }
 
@@ -25,6 +25,14 @@
   position: absolute;
 }
 
+.current-score {
+  color: var(--current-score);
+}
+
+.max-score {
+  color: var(--max-score);
+}
+
 .max-score-bar {
   background-color: var(--max-score-color);
 }
@@ -34,5 +42,5 @@
 }
 
 .lowest-score-bar {
-  background-color: black;
+  background-color: var(--lowest-score-bar);
 }

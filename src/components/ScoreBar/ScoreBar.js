@@ -10,15 +10,15 @@ const ScoreBar = ({ totalQuestions, score, currentScoreIndex }) => {
   return (
     <div className='score'>
       <div className='score-container'>
-        <span>Score: {currentScore}%</span>
-        <span>Max Score: {maxScore}%</span>
+        <span className='current-score'>Score: {currentScore}%</span>
+        <span className='max-score'>Max Score: {maxScore}%</span>
       </div>
       <div className='score-bar'>
         <div className='max-score-bar'
           style={{ width: `${maxScore}%`, transition: 'width .6s ease' }} />
         <div className='current-score-bar'
           style={{ width: `${currentScore}%`, transition: 'width .6s ease' }} />
-        <div className='lowest-score-bar'
+        <div className={currentScoreIndex !== totalQuestions ? 'lowest-score-bar' : ''}
           style={{ width: `${lowestScore}%`, transition: 'width .6s ease' }} />
       </div>
     </div>
