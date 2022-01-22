@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/challenge-quiz/static/css/main.32f55b1c.chunk.css",
-    "main.js": "/challenge-quiz/static/js/main.369856d0.chunk.js",
-    "main.js.map": "/challenge-quiz/static/js/main.369856d0.chunk.js.map",
+    "main.css": "/challenge-quiz/static/css/main.2d59bd88.chunk.css",
+    "main.js": "/challenge-quiz/static/js/main.cf233f35.chunk.js",
+    "main.js.map": "/challenge-quiz/static/js/main.cf233f35.chunk.js.map",
     "runtime~main.js": "/challenge-quiz/static/js/runtime~main.1e2260dd.js",
     "runtime~main.js.map": "/challenge-quiz/static/js/runtime~main.1e2260dd.js.map",
     "static/js/2.a214b9dc.chunk.js": "/challenge-quiz/static/js/2.a214b9dc.chunk.js",
     "static/js/2.a214b9dc.chunk.js.map": "/challenge-quiz/static/js/2.a214b9dc.chunk.js.map",
     "index.html": "/challenge-quiz/index.html",
-    "precache-manifest.cd6707c63075d1a7323271cfca3514e3.js": "/challenge-quiz/precache-manifest.cd6707c63075d1a7323271cfca3514e3.js",
+    "precache-manifest.a655017432d1c41d5cd2570f1a73ae56.js": "/challenge-quiz/precache-manifest.a655017432d1c41d5cd2570f1a73ae56.js",
     "service-worker.js": "/challenge-quiz/service-worker.js",
-    "static/css/main.32f55b1c.chunk.css.map": "/challenge-quiz/static/css/main.32f55b1c.chunk.css.map"
+    "static/css/main.2d59bd88.chunk.css.map": "/challenge-quiz/static/css/main.2d59bd88.chunk.css.map"
   }
 }
