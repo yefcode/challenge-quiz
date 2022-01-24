@@ -29,12 +29,12 @@ describe('Challenge quiz e2e tests', () => {
       if (questions[questionIndex].type === 'multiple') {
         cy.get('button').should('have.length', 4)
         cy.get('.disable-answer').should('have.length', 0)
-        cy.get('.selected-answer').should('have.length', 0)
+        cy.get('.incorrect-answer').should('have.length', 0)
         cy.get('.correct-answer').should('have.length', 0)
       } else {
         cy.get('button').should('have.length', 2)
         cy.get('.disable-answer').should('have.length', 0)
-        cy.get('.selected-answer').should('have.length', 0)
+        cy.get('.incorrect-answer').should('have.length', 0)
         cy.get('.correct-answer').should('have.length', 0)
       }
     })
@@ -78,12 +78,12 @@ describe('Challenge quiz e2e tests', () => {
 
   const selectIncorrectAnswer = (score, maxScore) => {
     before(() => {
-      cy.get('button.answer').contains(
+      cy.get('.answers button').contains(
         decodeURIComponent(questions[questionIndex].incorrect_answers[0])).click()
     })
 
     it('should load the answers styles after answer selected', () => {
-      cy.get('.selected-answer').should('have.length', 1)
+      cy.get('.incorrect-answer').should('have.length', 1)
       afterAnswerSelected()
     })
 
@@ -96,12 +96,12 @@ describe('Challenge quiz e2e tests', () => {
 
   const selectCorrectAnswer = (score, maxScore) => {
     before(() => {
-      cy.get('button.answer').contains(
+      cy.get('.answers button').contains(
         decodeURIComponent(questions[questionIndex].correct_answer)).click()
     })
   
     it('should load the answers styles', () => {
-      cy.get('.selected-answer').should('have.length', 0)
+      cy.get('.incorrect-answer').should('have.length', 0)
       afterAnswerSelected()
     })
 

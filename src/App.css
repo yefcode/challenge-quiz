@@ -7,29 +7,27 @@
   --grayColor: hsl(120, 2%, 80%);
   --blackColor: black;
 
-
-  --button-color: black;
+  /* Buttons */
   --button-color-background: hsl(120, 80%, 85%);
   --button-hover-background: hsl(120, 80%, 75%);
 
   --disable-answer-color: hsla(0, 0%, 0%, 0.2);
   --disable-bkg-color: hsla(120, 80%, 85%, 0.5);
 
-  --selected-answer: white;
-  --selected-answer-background: hsl(0, 60%, 50%);
+  --incorrect-answer: white;
+  --incorrect-answer-background: hsl(0, 100%, 62%);
 
-  --correct-answer: black;
+  --correct-answer: white;
   --correct-answer-background: hsl(120, 50%, 50%);
 
   --overall-progress-color: hsl(120, 1%, 66%);
 
-  --current-score: hsl(240, 60%, 50%);
-  --max-score: hsl(120, 50%, 50%);
+  --current-score: hsl(221, 95%, 61%);
+  --max-score: hsl(154, 94%, 39%);
 
-  --score-bar-border: black;
   --max-score-color: var(--max-score);
   --current-score-color: var(--current-score);
-  --lowest-score-bar: hsl(0, 70%, 50%);
+  --lowest-score-bar: hsl(0, 100%, 62%);
 }
 
 body {
@@ -54,13 +52,12 @@ button {
   font-weight: 600;
   background-color: var(--button-color-background);
   border: none;
-  color: var(--button-color);
+  min-width: 155px;
+  min-height: 35px;
 }
 
 button:hover:not(:disabled) {
   background-color: var(--button-hover-background);
-  border-color: var(--button-hover-border);
-  color: var(--button-hover-color);
 }
 
 .quiz-container {

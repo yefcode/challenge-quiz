@@ -33,14 +33,14 @@ const Answers = ({ question, answerSelected, setAnswerSelected }) => {
   const correctAnswer = (answer) => {
     return (answerSelected && (answer === question.correct_answer))
       ? 'correct-answer' : answerSelected === answer
-        ? 'selected-answer' : ''
+        ? 'incorrect-answer' : ''
   }
 
   return (
     <div className='answers'>
       {answers.map((answer, index) => (
         <button
-          className={`answer ${disableAnswerStyle} ${correctAnswer(answer)}`}
+          className={`${disableAnswerStyle} ${correctAnswer(answer)}`}
           key={index}
           disabled={answerSelected !== ''}
           onClick={() => selectedAnswer(answer)}>

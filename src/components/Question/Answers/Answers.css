@@ -5,18 +5,14 @@
   column-gap: 50px;
 }
 
-.answer {
-  min-height: 25px;
-}
-
 .disable-answer {
   color: var(--disable-answer-color);
   background-color: var(--disable-bkg-color);
 }
 
-.selected-answer {
-  color: var(--selected-answer);
-  background-color: var(--selected-answer-background);
+.incorrect-answer {
+  color: var(--incorrect-answer);
+  background-color: var(--incorrect-answer-background);
   font-weight: 600;
 }
 
